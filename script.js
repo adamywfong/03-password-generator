@@ -21,7 +21,7 @@ function generatePassword() {
     var input = prompt("Value has to be a number between 8 and 128.\nWhat is the minimum password length?");
     minLength = Number(input);
   }
-  //Construct charSet and ensure it is non-empty
+  //Construct charSet and ensures it is non-empty; also ensures passsword contains at least 1 character of each desired type
   while (charSet.length < 1) {
     if (confirm("Press 'OK' if you want your password to contain lowercase letters")) {
       charSet=charSet.concat(lowABC);
