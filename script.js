@@ -1,8 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// Character sets for password generation
 var lowABC = "abcdefghijklmnopqrstuvwxyz".split('');
 var upABC = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
-var numList = '0123456789'.split('');
+var numList = "0123456789".split('');
 var specChars = "~`!@#$%^&*()_+-=[]{}|,<.>/?;:\\\"\'".split('');
 // Write password to the #password input
 function writePassword() {
@@ -14,12 +15,11 @@ function writePassword() {
 //generates password for writePassword() function
 function generatePassword() {
   var pw = '';
-  var minLength = Number(prompt("What is the minimum password length?"));
+  var minLength = Number(prompt("What is the password length?"));
   var charSet = [];
   //verify minLength fits criteria
   while (isNaN(minLength) || minLength < 8 || minLength > 128) {
-    var input = prompt("Value has to be a number between 8 and 128.\nWhat is the minimum password length?");
-    minLength = Number(input);
+    minLength = Number(prompt("Value has to be a number between 8 and 128.\nWhat is the password length?"));
   }
   //Construct charSet and ensures it is non-empty; also ensures passsword contains at least 1 character of each desired type
   while (charSet.length < 1) {
@@ -40,7 +40,7 @@ function generatePassword() {
       pw+=specChars[Math.floor(Math.random()*specChars.length)];
     }
     if (charSet.length < 1) {
-      alert("Your password needs to be made with something!");
+      alert("Your password needs to be made with something! Select 'OK' for at least one option.");
     }
   }
   //create random password containing at least one of each character type
